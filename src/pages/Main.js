@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync
@@ -36,7 +36,11 @@ function Main() {
     return null;
   }
 
-  return <MapView initialRegion={currentRegion} style={styles.map} />;
+  return (
+    <MapView initialRegion={currentRegion} style={styles.map}>
+      <Marker coordinate={{ latitude: -31.8420959, longitude: -52.8202654 }} />
+    </MapView>
+  );
 }
 
 const styles = StyleSheet.create({
