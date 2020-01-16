@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import {
   requestPermissionsAsync,
@@ -38,7 +38,14 @@ function Main() {
 
   return (
     <MapView initialRegion={currentRegion} style={styles.map}>
-      <Marker coordinate={{ latitude: -31.8420959, longitude: -52.8202654 }} />
+      <Marker coordinate={{ latitude: -31.8420959, longitude: -52.8202654 }}>
+        <Image
+          style={styles.avatar}
+          source={{
+            uri: "https://avatars3.githubusercontent.com/u/7052300?s=460&v=4"
+          }}
+        />
+      </Marker>
     </MapView>
   );
 }
@@ -46,6 +53,14 @@ function Main() {
 const styles = StyleSheet.create({
   map: {
     flex: 1
+  },
+
+  avatar: {
+    width: 54,
+    height: 54,
+    borderRadius: 4,
+    borderWidth: 4,
+    borderColor: "#fff"
   }
 });
 
